@@ -4,7 +4,7 @@ if(isset($_SESSION["girisyaptimi"]) && $_SESSION["girisyaptimi"] == "evet") {
 	header("Location: panel.php");
 }
 ?>
-
+// deneme
 <html>
 <head>
     <meta charset="UTF-8" />
