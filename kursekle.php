@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION["kullanicirolu"]) || $_SESSION["kullanicirolu"] != 1)
+{
+	header("Location: yasak.php");
+}
+?>
 <html>
 	<head>
 	</head>

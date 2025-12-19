@@ -1,10 +1,9 @@
 <?php 
 session_start();
-if(isset($_SESSION["girisyaptimi"]) && $_SESSION["girisyaptimi"] == "evet") {
+if(isset($_SESSION["kullanici"]) && !empty($_SESSION["kullanici"])) {
 	header("Location: panel.php");
 }
 ?>
-// deneme
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -34,13 +33,12 @@ if(isset($_SESSION["girisyaptimi"]) && $_SESSION["girisyaptimi"] == "evet") {
 		$ksqlDeyimi->execute();
 		$kayit = $ksqlDeyimi->fetch(); 
 		if(count($kayit) > 0) {
-			$_SESSION["girisyaptimi"] = "evet";
-			$_SESSION["kullanicirolu"] = $kayit["kullanici_rolu"];
-			$_SESSION["kullaniciadi"] = $f_gelen_kulad; 
+			$_SESSION["kullanici"] = $f_gelen_kulad;
+			$_SESSION["kullanicirolu"] = $kayit["kullanici_rolu"]; 
 			echo "Giriş yaptınız";
 		}
 		else {
-			$_SESSION["girisyaptimi"] = "hayir";
+			$_SESSION["kullanici"] = "";
 			echo "E-postanız veya şifreniz hatalı";
 		}
 	}

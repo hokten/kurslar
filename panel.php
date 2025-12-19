@@ -4,8 +4,8 @@
 		<title>Profil Sayfası</title>
 	</head>
 	<?php 
-	if(isset($_SESSION["girisyaptimi"]) && $_SESSION["girisyaptimi"] == "evet") {
-		echo "Merhaba kayıtlı kullanıcı {$_SESSION["kullanici_ismi"]},";
+	if(isset($_SESSION["kullanici"]) && !empty($_SESSION["kullanici"])) {
+		echo "Merhaba {$_SESSION["kullanici"]}, ";
 		echo "çıkış yapmak için <a href='cikis.php'>tıkla</a>";
 	}
 	else {
