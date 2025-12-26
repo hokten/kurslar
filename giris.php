@@ -34,6 +34,7 @@ if(isset($_SESSION["kullanici"]) && !empty($_SESSION["kullanici"])) {
 		$kayit = $ksqlDeyimi->fetch(); 
 		if(count($kayit) > 0) {
 			$_SESSION["kullanici"] = $f_gelen_kulad;
+			$_SESSION["kullaniciid"] = $kayit["id"];
 			$_SESSION["kullanicirolu"] = $kayit["kullanici_rolu"]; 
 			echo "Giriş yaptınız";
 		}
